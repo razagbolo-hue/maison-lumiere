@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maison Lumière — Luxury Perfumes & Gifts</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__logo">MAISON LUMIÈRE</div>
+    <ul class="nav__links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#gifts">Gifts</a></li>
+      <li><a href="#about">Maison</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__cta btn btn--primary btn--sm">Shop Now</button>
+    <button class="nav__hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="closeMenu">&#10005;</button>
+    <ul>
+      <li><a href="#collection" onclick="closeMobileMenu()">Collection</a></li>
+      <li><a href="#gifts" onclick="closeMobileMenu()">Gifts</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">Maison</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="images/hero-spray.jpg" alt="Luxury perfume" class="hero__bg-img" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Est. Paris, 1987</p>
+      <h1 class="hero__title">Where Scent<br/><em>Becomes</em> Memory</h1>
+      <p class="hero__subtitle">Handcrafted perfumes and curated luxury gifts, born from rare botanicals and timeless artisanship.</p>
+      <div class="hero__actions">
+        <a href="#collection" class="btn btn--primary">Explore Collection</a>
+        <a href="#about" class="btn btn--ghost">Our Story</a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Oud Royale</span><span class="dot">·</span>
+      <span>Rose de Mai</span><span class="dot">·</span>
+      <span>Ambre Noir</span><span class="dot">·</span>
+      <span>Iris Absolu</span><span class="dot">·</span>
+      <span>Santal Blanc</span><span class="dot">·</span>
+      <span>Vetiver Gold</span><span class="dot">·</span>
+      <span>Moon Lumière</span><span class="dot">·</span>
+      <span>Oud Royale</span><span class="dot">·</span>
+      <span>Rose de Mai</span><span class="dot">·</span>
+      <span>Ambre Noir</span><span class="dot">·</span>
+      <span>Iris Absolu</span><span class="dot">·</span>
+      <span>Santal Blanc</span><span class="dot">·</span>
+      <span>Vetiver Gold</span><span class="dot">·</span>
+      <span>Moon Lumière</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="collection">
+    <div class="section-header">
+      <p class="section-label">The Collection</p>
+      <h2 class="section-title">Signature Fragrances</h2>
+      <p class="section-sub">Each bottle a world. Each scent a story.</p>
+    </div>
+    <div class="products-grid">
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-gold.jpg" alt="Oud Royale perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <span class="product-card__badge">Bestseller</span>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Oriental Woody</p>
+          <h3 class="product-card__name">Oud Royale</h3>
+          <p class="product-card__notes">Agarwood · Dark Rose · Amber · Musk</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$285</span>
+            <div class="product-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-red.jpg" alt="Rose de Mai perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <span class="product-card__badge product-card__badge--new">New</span>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Floral</p>
+          <h3 class="product-card__name">Rose de Mai</h3>
+          <p class="product-card__notes">Centifolia Rose · Peony · White Musk · Sandalwood</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$320</span>
+            <div class="product-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-teal.jpg" alt="Moon Lumière perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Aquatic Fresh</p>
+          <h3 class="product-card__name">Moon Lumière</h3>
+          <p class="product-card__notes">Sea Breeze · Jasmine · Cedar · White Amber</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$260</span>
+            <div class="product-card__stars">★★★★☆</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-amber.jpg" alt="Ambre Noir perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Chypre</p>
+          <h3 class="product-card__name">Ambre Noir</h3>
+          <p class="product-card__notes">Labdanum · Tonka Bean · Vetiver · Benzoin</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$295</span>
+            <div class="product-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-black.jpg" alt="Iris Absolu perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <span class="product-card__badge product-card__badge--limited">Limited</span>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Powdery Floral</p>
+          <h3 class="product-card__name">Iris Absolu</h3>
+          <p class="product-card__notes">Iris Pallida · Violet · Orris Root · Cedar</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$395</span>
+            <div class="product-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-pink.jpg" alt="Rose Céleste perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Fruity Floral</p>
+          <h3 class="product-card__name">Rose Céleste</h3>
+          <p class="product-card__notes">Pink Pepper · Pomegranate · Rose · Lime</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$245</span>
+            <div class="product-card__stars">★★★★☆</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-aos>
+        <div class="product-card__image">
+          <img src="images/bottle-dark.jpg" alt="Santal Obscur perfume bottle" />
+          <div class="product-card__overlay">
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card__info">
+          <p class="product-card__family">Woody Oriental</p>
+          <h3 class="product-card__name">Santal Obscur</h3>
+          <p class="product-card__notes">Sandalwood · Cognac · Dark Leather · Smoke</p>
+          <div class="product-card__footer">
+            <span class="product-card__price">$340</span>
+            <div class="product-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ABOUT BANNER -->
+  <section class="banner" id="about">
+    <div class="banner__image">
+      <img src="images/hero-lady.jpg" alt="Woman applying luxury perfume" />
+      <div class="banner__image-overlay"></div>
+    </div>
+    <div class="banner__text">
+      <p class="section-label">Our Maison</p>
+      <h2>Crafted with<br/><em>obsession,</em><br/>worn with grace.</h2>
+      <p>Founded in Paris in 1987, Maison Lumière was born from a single belief: that a true fragrance should be felt before it is smelled. Each formula is developed over years, sourced from the world's rarest botanicals, and bottled in hand-blown Venetian glass.</p>
+      <p>We do not rush. We do not compromise. Every drop is a testament to a craft that refuses to be hurried.</p>
+      <div class="banner__stats">
+        <div class="stat">
+          <span class="stat__number">37</span>
+          <span class="stat__label">Years of Artisanship</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">12</span>
+          <span class="stat__label">Master Perfumers</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">480+</span>
+          <span class="stat__label">Rare Ingredients</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">60+</span>
+          <span class="stat__label">Countries Served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="gifts" id="gifts">
+    <div class="section-header">
+      <p class="section-label">Curated for You</p>
+      <h2 class="section-title">Luxury Gift Sets</h2>
+      <p class="section-sub">The art of giving, elevated.</p>
+    </div>
+    <div class="gifts-grid">
+
+      <article class="gift-card" data-aos>
+        <div class="gift-card__image">
+          <img src="images/bottle-gold.jpg" alt="Discovery gift set" />
+        </div>
+        <div class="gift-card__body">
+          <h3>The Discovery Set</h3>
+          <p>5 × 10ml miniatures in a hand-lacquered travel case</p>
+          <div class="gift-card__footer">
+            <span class="gift-card__price">$175</span>
+            <button class="btn btn--outline btn--sm" onclick="addToCart(this)">Select & Gift</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="gift-card gift-card--featured" data-aos>
+        <div class="gift-card__image gift-card__image--tall">
+          <img src="images/bottle-dark.jpg" alt="Prestige collection gift" />
+          <div class="gift-card__featured-label">Most Popular</div>
+        </div>
+        <div class="gift-card__body">
+          <h3>The Prestige Collection</h3>
+          <p>3 full-size bottles + 24K gold-leaf packaging + handwritten card</p>
+          <div class="gift-card__footer">
+            <span class="gift-card__price">$890</span>
+            <button class="btn btn--primary btn--sm" onclick="addToCart(this)">Select & Gift</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="gift-card" data-aos>
+        <div class="gift-card__image">
+          <img src="images/bottle-pink.jpg" alt="Romantic edit gift" />
+        </div>
+        <div class="gift-card__body">
+          <h3>The Romantic Edit</h3>
+          <p>Rose Céleste + Iris Absolu + satin ribbon gift wrap</p>
+          <div class="gift-card__footer">
+            <span class="gift-card__price">$640</span>
+            <button class="btn btn--outline btn--sm" onclick="addToCart(this)">Select & Gift</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <p class="section-label">What They Say</p>
+      <h2 class="section-title">Loved Worldwide</h2>
+    </div>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial" data-aos>
+        <div class="testimonial__stars">★★★★★</div>
+        <p>"Oud Royale is unlike anything I have ever worn. It commands a room without a word."</p>
+        <cite>— Sofia A., Milan</cite>
+      </blockquote>
+      <blockquote class="testimonial testimonial--featured" data-aos>
+        <div class="testimonial__stars">★★★★★</div>
+        <p>"The Prestige Gift Set arrived in the most breathtaking packaging. My mother wept. Worth every penny."</p>
+        <cite>— James T., London</cite>
+      </blockquote>
+      <blockquote class="testimonial" data-aos>
+        <div class="testimonial__stars">★★★★★</div>
+        <p>"Santal Obscur is my skin, but better. I receive compliments every single day."</p>
+        <cite>— Anya K., Dubai</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="contact__title">Begin Your<br/><em>Olfactory Journey</em></h2>
+      <p class="contact__sub">Book a private consultation at our Parisian atelier or receive a curated discovery set at your door.</p>
+      <form class="contact__form" onsubmit="handleForm(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <textarea placeholder="Tell us about your fragrance preferences or gifting needs…" rows="4"></textarea>
+        <button type="submit" class="btn btn--primary">Send Enquiry</button>
+      </form>
+      <div class="contact__toast" id="toast">✓ Your enquiry has been received. We will respond within 24 hours.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <p class="footer__logo">MAISON LUMIÈRE</p>
+        <p>The art of fragrance,<br/>perfected over generations.</p>
+      </div>
+      <div class="footer__links">
+        <div>
+          <p class="footer__heading">Collection</p>
+          <ul>
+            <li><a href="#">Fragrances</a></li>
+            <li><a href="#">Gift Sets</a></li>
+            <li><a href="#">Limited Editions</a></li>
+            <li><a href="#">Travel Size</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Maison</p>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Atelier</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Support</p>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Care Guide</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Maison Lumière. All rights reserved.</p>
+      <div class="footer__socials">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
