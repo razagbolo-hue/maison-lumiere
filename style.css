@@ -379,6 +379,9 @@ em { font-style: italic; color: var(--gold); }
   border-radius: var(--radius); color: #3a6b4a; font-size: 0.85rem;
 }
 .contact__toast.show { display: block; animation: fadeUp 0.4s both; }
+.contact__toast.toast--error {
+  background: rgba(180,60,60,0.08); border-color: rgba(180,60,60,0.25); color: #8b3a3a;
+}
 
 .contact__note {
   margin-top: 1.25rem;

@@ -34,7 +34,7 @@ document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
 
 // ---- Contact Form — Web3Forms ----
 const contactForm = document.getElementById('contactForm');
-const submitBtn   = contactForm.querySelector('button[type="submit"]');
+const submitBtn   = document.getElementById('submitBtn');
 const toast       = document.getElementById('toast');
 
 contactForm.addEventListener('submit', async (e) => {
@@ -46,6 +46,7 @@ contactForm.addEventListener('submit', async (e) => {
   const originalText = submitBtn.textContent;
   submitBtn.textContent = 'Sending…';
   submitBtn.disabled = true;
+  toast.classList.remove('show', 'toast--error');
 
   try {
     const response = await fetch('https://api.web3forms.com/submit', {
@@ -54,25 +55,21 @@ contactForm.addEventListener('submit', async (e) => {
     });
     const data = await response.json();
 
-    if (response.ok) {
+    if (data.success) {
       toast.textContent = '✓ Enquiry received. We will be in touch shortly.';
-      toast.style.background = 'rgba(74,124,90,0.08)';
-      toast.style.borderColor = 'rgba(74,124,90,0.25)';
-      toast.style.color = '#3a6b4a';
+      toast.classList.remove('toast--error');
       contactForm.reset();
     } else {
       throw new Error(data.message || 'Submission failed');
     }
   } catch (err) {
     toast.textContent = '✗ Something went wrong. Please try again or email us directly.';
-    toast.style.background = 'rgba(180,60,60,0.08)';
-    toast.style.borderColor = 'rgba(180,60,60,0.25)';
-    toast.style.color = '#8b3a3a';
+    toast.classList.add('toast--error');
   } finally {
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 7000);
+    setTimeout(() => toast.classList.remove('show', 'toast--error'), 7000);
   }
 });
 
