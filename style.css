@@ -380,6 +380,21 @@ em { font-style: italic; color: var(--gold); }
 }
 .contact__toast.show { display: block; animation: fadeUp 0.4s both; }
 
+.contact__note {
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.contact__note a { color: var(--gold); text-decoration: underline; }
+.contact__note code {
+  background: var(--bg-dark);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  color: var(--cream-dk);
+}
+
 /* =============================================
    FOOTER
    ============================================= */
