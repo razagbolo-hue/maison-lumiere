@@ -32,45 +32,31 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
 
-// ---- Contact Form — sends to razagbolo@gmail.com ----
-async function handleForm(e) {
+// ---- Contact Form — opens Gmail with pre-filled enquiry ----
+function handleForm(e) {
   e.preventDefault();
-  const form  = e.target;
-  const btn   = document.getElementById('submitBtn');
-  const toast = document.getElementById('toast');
+  const form    = e.target;
+  const name    = form.querySelector('input[name="name"]').value.trim();
+  const email   = form.querySelector('input[name="email"]').value.trim();
+  const message = form.querySelector('textarea[name="message"]').value.trim();
+  const toast   = document.getElementById('toast');
 
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
+  const subject = encodeURIComponent('Maison Lumière — New Enquiry from ' + name);
+  const body    = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n\n' +
+    'Message:\n' + message
+  );
 
-  try {
-    const res = await fetch('https://formspree.io/f/razagbolo@gmail.com', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    });
+  window.location.href = 'mailto:razagbolo@gmail.com?subject=' + subject + '&body=' + body;
 
-    if (res.ok) {
-      toast.textContent = '✓ Your enquiry has been received. We will respond within 24 hours.';
-      toast.style.background = 'rgba(74,124,90,0.08)';
-      toast.style.borderColor = 'rgba(74,124,90,0.25)';
-      toast.style.color = '#3a6b4a';
-      toast.classList.add('show');
-      form.reset();
-      setTimeout(() => toast.classList.remove('show'), 6000);
-    } else {
-      throw new Error('Send failed');
-    }
-  } catch {
-    toast.textContent = '✗ Something went wrong. Please try again later.';
-    toast.style.background = 'rgba(124,58,58,0.08)';
-    toast.style.borderColor = 'rgba(124,58,58,0.25)';
-    toast.style.color = '#7c3a3a';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 6000);
-  } finally {
-    btn.textContent = 'Send Enquiry';
-    btn.disabled = false;
-  }
+  toast.textContent = '✓ Your email client has opened. Press Send to submit your enquiry.';
+  toast.style.background = 'rgba(74,124,90,0.08)';
+  toast.style.borderColor = 'rgba(74,124,90,0.25)';
+  toast.style.color = '#3a6b4a';
+  toast.classList.add('show');
+  form.reset();
+  setTimeout(() => toast.classList.remove('show'), 7000);
 }
 
 // ---- Add to Cart feedback ----
