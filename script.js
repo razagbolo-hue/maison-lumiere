@@ -32,42 +32,34 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
 
-// ---- Contact Form — opens Gmail with pre-filled enquiry ----
-async function handleForm(e) {
-  e.preventDefault();
-  const form      = e.target;
-  const name      = form.querySelector('input[name="name"]').value.trim();
-  const email     = form.querySelector('input[name="email"]').value.trim();
-  const message   = form.querySelector('textarea[name="message"]').value.trim();
-  const toast     = document.getElementById('toast');
-  const submitBtn = document.getElementById('submitBtn');
+// ---- Contact Form — Web3Forms ----
+const contactForm = document.getElementById('contactForm');
+const submitBtn   = contactForm.querySelector('button[type="submit"]');
+const toast       = document.getElementById('toast');
 
-  // Disable button while sending
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+  formData.append('access_key', '4684b606-cf04-4334-86c9-2e3313075ff6');
+
+  const originalText = submitBtn.textContent;
   submitBtn.textContent = 'Sending…';
   submitBtn.disabled = true;
 
   try {
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: '4684b606-cf04-4334-86c9-2e3313075ff6',
-        subject: 'Maison Lumière — New Enquiry from ' + name,
-        from_name: name,
-        email: email,
-        message: message,
-        redirect: false
-      })
+      body: formData
     });
-
     const data = await response.json();
 
-    if (data.success) {
+    if (response.ok) {
       toast.textContent = '✓ Enquiry received. We will be in touch shortly.';
       toast.style.background = 'rgba(74,124,90,0.08)';
       toast.style.borderColor = 'rgba(74,124,90,0.25)';
       toast.style.color = '#3a6b4a';
-      form.reset();
+      contactForm.reset();
     } else {
       throw new Error(data.message || 'Submission failed');
     }
@@ -77,12 +69,12 @@ async function handleForm(e) {
     toast.style.borderColor = 'rgba(180,60,60,0.25)';
     toast.style.color = '#8b3a3a';
   } finally {
-    submitBtn.textContent = 'Send Enquiry';
+    submitBtn.textContent = originalText;
     submitBtn.disabled = false;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 7000);
   }
-}
+});
 
 // ---- Add to Cart feedback ----
 function addToCart(btn) {
