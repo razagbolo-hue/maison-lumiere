@@ -333,16 +333,20 @@
       <p class="section-label">Get in Touch</p>
       <h2 class="contact__title">Begin Your<br/><em>Olfactory Journey</em></h2>
       <p class="contact__sub">Book a private consultation at our Parisian atelier or receive a curated discovery set at your door.</p>
+      
       <form class="contact__form" id="contactForm">
+        <input type="hidden" name="access_key" value="4684b606-cf04-4334-86c9-2e3313075ff6">
+        <input type="hidden" name="subject" value="New Enquiry from Maison Lumière">
+        <input type="checkbox" name="botcheck" id="" style="display: none;">
         <div class="form-row">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Email Address" required />
         </div>
-        <textarea name="message" placeholder="Tell us about your fragrance preferences or gifting needs…" rows="4"></textarea>
+        <textarea name="message" placeholder="Tell us about your fragrance preferences or gifting needs…" rows="4" required></textarea>
         <button type="submit" class="btn btn--primary" id="submitBtn">Send Enquiry</button>
       </form>
-      <div class="contact__toast" id="toast">✓ Your enquiry has been received. We will respond within 24 hours.</div>
       
+      <div class="contact__toast" id="toast">✓ Your enquiry has been received. We will respond within 24 hours.</div>
     </div>
   </section>
 
